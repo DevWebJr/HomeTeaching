@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title ' ' ~ learner.getFirstName() ~ ' | ' ~ parent() %}
+
+{% block body %}
+    <h1>Learner</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ learner.id }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ learner.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ learner.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ learner.gender ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('learner_index') }}">back to list</a>
+
+    <a href="{{ path('learner_edit', {'id': learner.id}) }}">edit</a>
+
+    {{ include('learner/_delete_form.html.twig') }}
+{% endblock %}

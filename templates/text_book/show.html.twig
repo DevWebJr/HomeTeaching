@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>TextBook</title>
+
+{% block body %}
+    <h1>TextBook</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ text_book.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ text_book.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ text_book.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('text_book_index') }}">back to list</a>
+
+    <a href="{{ path('text_book_edit', {'id': text_book.id}) }}">edit</a>
+
+    {{ include('text_book/_delete_form.html.twig') }}
+{% endblock %}
